@@ -54,15 +54,17 @@ def upload_status(URL = "https://officialpiratebay.com/search.php?q=user:sotnika
         count = count + 1
         print(str(count) + ' no. of HASH found.')
         
-
-    with open("sotnikam.txt", "w") as f:
+    filename = URL.strip('https://officialpiratebay.com/search.php?q=user: ')
+    filename = filename + '.txt'
+    with open(filename, "w") as f:
         f.write("Title" + "\t" + "Date" + "\t" + "Size\t" + "Link\t" + "Hash\n" ) 
         for i in range(len(title_list)):
             f.write(title_list[i] + '\t' + date_list[i] + '\t' + size_list[i] + '\t' + link_list[i] + '\t' + hash_list[i])
             f.write('\n')
     
-    print('Total' + str(count) + " HASH found. File in sotnikam.txt")
+    print('Total ' + str(count) + " HASH found. File in " + filename)
 
 upload_status()
+upload_status(URL = 'https://officialpiratebay.com/search.php?q=user:TvTeam')
 
 
