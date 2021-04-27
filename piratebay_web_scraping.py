@@ -65,7 +65,7 @@ def upload_status(URL = "https://officialpiratebay.com/search.php?q=user:sotnika
     print('Total ' + str(count) + " HASH found. File in " + filename)
 
 
-#upload_status()
-#upload_status(URL = 'https://officialpiratebay.com/search.php?q=user:TvTeam')
+upload_status()
+upload_status(URL = 'https://officialpiratebay.com/search.php?q=user:TvTeam')
 
 
