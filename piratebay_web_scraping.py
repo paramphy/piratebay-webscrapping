@@ -56,7 +56,7 @@ def upload_status(URL = "https://officialpiratebay.com/search.php?q=user:sotnika
         
     filename = URL.strip('https://officialpiratebay.com/search.php?q=user: ')
     filename = filename + '.txt'
-    with open(filename, "a") as f:
+    with open(filename, "w") as f:
         f.write("Title" + "\t" + "Date" + "\t" + "Size\t" + "Link\t" + "Hash\n" ) 
         for i in range(len(title_list)):
             f.write(title_list[i] + '\t' + date_list[i] + '\t' + size_list[i] + '\t' + link_list[i] + '\t' + hash_list[i])
