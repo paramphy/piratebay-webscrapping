@@ -6,9 +6,15 @@ import re
 
 from piratebay_web_scraping import upload_status
 
-search_term = 'daredevil'
+def piratbay_search_page_data(search_term):
+    search_term = 'daredevil'
+    URL = 'https://officialpiratebay.com/search.php?q=' + search_term + '&cat=0'
+    print('URL = ', URL)
+    upload_status(URL = URL)
 
-URL = 'https://officialpiratebay.com/search.php?q=' + search_term + '&cat=0'
-print('URL = ', URL)
+def main():
+    search_term = 'daredevil'
+    piratbay_search_page_data(search_term)
 
-upload_status(URL = URL)
+if __name__ == "__main__":
+    main()

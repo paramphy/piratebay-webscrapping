@@ -4,6 +4,15 @@ import csv
 import time
 import re
 
+def hash_finder(link):
+    
+    r = requests.get(link)
+    soup = BeautifulSoup(r.content, 'html5lib')
+    file_hash = soup.findAll(id = "ih")
+    file_hash = file_hash[0].get_text()
+    return(file_hash)
+
+
 def upload_status(URL = "https://officialpiratebay.com/search.php?q=user:sotnikam"):
     
     r = requests.get(URL)
@@ -16,7 +25,6 @@ def upload_status(URL = "https://officialpiratebay.com/search.php?q=user:sotnika
     link_list = []
     hash_list = []
     count = 0
-    #print(soup.prettify())
 
     for title in soup.findAll('span',attrs = {'class':['list-item item-name item-title']}):
 
@@ -35,23 +43,13 @@ def upload_status(URL = "https://officialpiratebay.com/search.php?q=user:sotnika
 
     for link in soup.findAll(href=re.compile("description")):
         
-        
         link = link.get('href')
         link = "https://officialpiratebay.com" + str(link)
         link_list.append(link)
-
-        r = requests.get(link)
-  
-        soup = BeautifulSoup(r.content, 'html5lib')
-
-        file_hash = soup.findAll(id = "ih")
-    
-        file_hash = file_hash[0].get_text()
-
+        file_hash = hash_finder(link)
         hash_list.append(file_hash)
-
         count = count + 1
-        print(str(count) + ' no. of HASH found.')
+        print('No. of HASH found. ' + str(count))
         
     filename = URL.strip('https://officialpiratebay.com/search.php?q=user: ')
     filename = filename + '.txt'
@@ -65,7 +63,12 @@ def upload_status(URL = "https://officialpiratebay.com/search.php?q=user:sotnika
 
 
 
-#upload_status()
-#upload_status(URL = 'https://officialpiratebay.com/search.php?q=user:TvTeam')
+def main():
+    upload_status()
+    upload_status(URL = 'https://officialpiratebay.com/search.php?q=user:TvTeam')
+
+
+if __name__ == "__main__":
+    main()
 
 
