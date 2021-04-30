@@ -65,7 +65,7 @@ def upload_status(URL = "https://officialpiratebay.com/search.php?q=user:sotnika
 
 def main():
     upload_status()
-    upload_status(URL = 'https://officialpiratebay.com/search.php?q=user:TvTeam')
+    upload_status(URL = 'https://officialpiratebay.com/search.php?q=user:jajaja')
 
 
 if __name__ == "__main__":

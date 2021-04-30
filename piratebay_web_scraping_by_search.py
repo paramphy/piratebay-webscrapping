@@ -4,7 +4,7 @@ import csv
 import time
 import re
 
-from piratebay_web_scraping import upload_status
+from piratebay_web_scraping import *
 
 def piratbay_search_page_data(search_term):
     search_term = 'daredevil'
