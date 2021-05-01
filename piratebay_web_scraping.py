@@ -13,7 +13,7 @@ def hash_finder(link):
     return(file_hash)
 
 
-def upload_status(URL = "https://officialpiratebay.com/search.php?q=user:sotnikam"):
+def page_scrape(URL = "https://officialpiratebay.com/search.php?q=user:sotnikam"):
     
     r = requests.get(URL)
   
@@ -64,8 +64,8 @@ def upload_status(URL = "https://officialpiratebay.com/search.php?q=user:sotnika
 
 
 def main():
-    upload_status()
-    upload_status(URL = 'https://officialpiratebay.com/search.php?q=user:jajaja')
+    page_scrape()
+    page_scrape(URL = 'https://officialpiratebay.com/search.php?q=user:jajaja')
 
 
 if __name__ == "__main__":

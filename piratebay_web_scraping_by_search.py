@@ -10,7 +10,7 @@ def piratbay_search_page_data(search_term):
     search_term = 'daredevil'
     URL = 'https://officialpiratebay.com/search.php?q=' + search_term + '&cat=0'
     print('URL = ', URL)
-    upload_status(URL = URL)
+    page_scrape(URL = URL)
 
 def main():
     search_term = 'daredevil'
