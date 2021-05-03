@@ -129,8 +129,8 @@ def page_scraper_recent_100():
 
 def main():
 
-    page_scraper_user("jajaja")
-    page_scraper_search("DC")
+    page_scraper_user("sotnikm")
+    page_scraper_search("porn.comics")
     page_scraper_recent_100()
 
 
