@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import csv
 import time
 import re
+import progressbar
 
 
 def hash_finder(link):
@@ -56,6 +57,7 @@ def page_scraper(URL="https://officialpiratebay.com/search.php?q=user:sotnikam")
         hash_list.append(file_hash)
         count = count + 1
         print("No. of HASH found. " + str(count))
+        
 
     for category in soup.findAll("span", attrs={"class": ["list-item item-type"]}):
 
@@ -76,24 +78,25 @@ def file_output(URL, filename):
         hash_list,
         category_list,
     ) = page_scraper(URL)
-    filename = filename + ".txt"
+    filename = filename + ".md"
     with open(filename, "w", encoding="utf-8") as f:
-        f.write("Title" + "\t" + "Date" + "\t" + "Size\t" + "Link\t" + "Hash\n")
+        f.write("**Category**"+"|"+"**Title**" + "|" + "**Date**" + "|" + "**Size**|" + "**Link**|" + "**Hash**")
+        f.write("\n")
+        f.write(":-----:|:-----:|:-----:|:-----:|:-----:|:-----:")
         for i in range(len(title_list)):
             f.write(
                 category_list[i]
-                + "\t"
+                + "|"
                 + title_list[i]
-                + "\t"
+                + "|"
                 + date_list[i]
-                + "\t"
+                + "|"
                 + size_list[i]
-                + "\t"
+                + "|"
                 + link_list[i]
-                + "\t"
+                + "|"
                 + hash_list[i]
             )
-            f.write("\n")
             count += 1
 
     print("Total " + str(count) + " HASH found. File in " + filename)
