@@ -93,7 +93,7 @@ def file_output(URL, filename):
                 + "|"
                 + size_list[i]
                 + "|"
-                + link_list[i]
+                + "[Link]("+link_list[i]+")"
                 + "|"
                 + hash_list[i]
             )
