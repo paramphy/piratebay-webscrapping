@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import csv
 import time
 import re
-import progressbar
+from tqdm import tqdm
 
 
 def hash_finder(link):
@@ -48,6 +48,8 @@ def page_scraper(URL="https://officialpiratebay.com/search.php?q=user:sotnikam")
         size = size.get_text()
         size_list.append(size)
 
+    pbar = tqdm(total=100)
+
     for link in soup.findAll(href=re.compile("description")):
 
         link = link.get("href")
@@ -56,7 +58,9 @@ def page_scraper(URL="https://officialpiratebay.com/search.php?q=user:sotnikam")
         file_hash = hash_finder(link)
         hash_list.append(file_hash)
         count = count + 1
-        print("No. of HASH found. " + str(count))
+        #print("No. of HASH found. " + str(count))
+        pbar.update(100/len(title_list))
+    pbar.close()
         
 
     for category in soup.findAll("span", attrs={"class": ["list-item item-type"]}):
@@ -99,7 +103,7 @@ def file_output(URL, filename):
             )
             count += 1
 
-    print("Total " + str(count) + " HASH found. File in " + filename)
+    print("\nTotal " + str(count) + " HASH found. File in " + filename + "\n")
 
 
 def page_scraper_user(user_name):
