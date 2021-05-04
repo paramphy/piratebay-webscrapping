@@ -1,9 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
-import csv
 import time
 import re
 from tqdm import tqdm
+import datetime
 
 
 def hash_finder(link):
@@ -126,12 +126,19 @@ def page_scraper_recent_100():
     URL = "https://officialpiratebay.com/search.php?q=top100:recent"
     file_output(URL, "top100recent")
 
+def page_scraper_url(URL):
+
+    URL = URL
+    filename = 'url'
+    file_output(URL, filename)
+
 
 def main():
 
-    page_scraper_user("sotnikm")
-    page_scraper_search("porn.comics")
-    page_scraper_recent_100()
+    #page_scraper_user("MrStark")
+    #page_scraper_search("")
+    #page_scraper_recent_100()
+    page_scraper_url('https://officialpiratebay.com/search.php?q=top100:599')
 
 
 if __name__ == "__main__":
