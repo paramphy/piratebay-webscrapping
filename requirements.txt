@@ -1,5 +1,4 @@
 requests
-time
 re
 tqdm
-bs4
+beautifulsoup4
