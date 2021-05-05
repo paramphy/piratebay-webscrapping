@@ -136,9 +136,9 @@ def page_scraper_url(URL):
 def main():
 
     #page_scraper_user("MrStark")
-    #page_scraper_search("")
+    page_scraper_search("the.Flash")
     #page_scraper_recent_100()
-    page_scraper_url('https://officialpiratebay.com/search.php?q=top100:599')
+    #page_scraper_url('https://officialpiratebay.com/search.php?q=top100:599')
 
 
 if __name__ == "__main__":
